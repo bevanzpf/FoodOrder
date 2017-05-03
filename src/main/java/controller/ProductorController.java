@@ -43,4 +43,9 @@ public class ProductorController {
         productorService.deleteOne(id);
         return "redirect:/admin/productors/index";
     }
+
+    @RequestMapping("/productor")
+    public String show(){
+        return "/productor/show";
+    }
 }

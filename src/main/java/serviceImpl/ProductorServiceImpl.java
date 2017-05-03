@@ -28,4 +28,17 @@ public class ProductorServiceImpl implements ProductorService{
     public void deleteOne(Integer id) throws Exception {
         productorMapper.deleteOne(id);
     }
+
+    public Productor authenticate(String email, String pwd) throws Exception {
+        Productor productor = productorMapper.findByEmail(email);
+        System.out.println(productor);
+        if(productor != null){
+            String turePwd = productor.getPwd();
+            if(turePwd.equals(pwd)){
+                productor.setPwd(null);
+                return productor;
+            }
+        }
+        return null;
+    }
 }

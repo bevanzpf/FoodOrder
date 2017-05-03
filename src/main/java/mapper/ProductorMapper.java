@@ -14,4 +14,6 @@ public interface ProductorMapper {
     List<Productor> selectAll() throws Exception;
 
     void deleteOne(Integer id)throws Exception;
+
+    Productor findByEmail(String email) throws Exception;
 }

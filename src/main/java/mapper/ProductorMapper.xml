@@ -16,4 +16,8 @@
         DELETE FROM productors WHERE id=#{id}
     </delete>
 
+    <select id="findByEmail" parameterType="String" resultType="po.Productor">
+        SELECT * from productors WHERE email = #{email}
+    </select>
+
 </mapper>
