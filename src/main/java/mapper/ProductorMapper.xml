@@ -20,4 +20,8 @@
         SELECT * from productors WHERE email = #{email}
     </select>
 
+    <select id="findById" parameterType="int" resultType="po.Productor">
+        SELECT * FROM productors WHERE id = #{id}
+    </select>
+
 </mapper>

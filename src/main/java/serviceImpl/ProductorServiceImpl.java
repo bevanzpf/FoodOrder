@@ -41,4 +41,9 @@ public class ProductorServiceImpl implements ProductorService{
         }
         return null;
     }
+
+    public Productor findById(Integer id) throws Exception {
+        Productor productor = productorMapper.findById(id);
+        return productor;
+    }
 }

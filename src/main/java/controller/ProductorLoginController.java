@@ -35,7 +35,7 @@ public class ProductorLoginController {
         }else{
             session.setAttribute("productor", productor);
         }
-        return "redirect:/productor";
+        return "redirect:/productor?id="+productor.getId();
     }
 
     @RequestMapping("logout")

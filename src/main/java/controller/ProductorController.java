@@ -45,7 +45,9 @@ public class ProductorController {
     }
 
     @RequestMapping("/productor")
-    public String show(){
+    public String show(Integer id, Model model) throws Exception {
+        Productor productor = productorService.findById(id);
+        model.addAttribute("productor",productor);
         return "/productor/show";
     }
 }

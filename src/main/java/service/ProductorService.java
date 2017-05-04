@@ -16,4 +16,6 @@ public interface ProductorService {
     void deleteOne(Integer id)throws Exception;
 
     Productor authenticate(String email, String pwd)throws Exception;
+
+    Productor findById(Integer id) throws Exception;
 }
