@@ -22,8 +22,18 @@
 
   <h1>商户链接</h1>
 
+  <a href="/productor?id=2">商铺的公共页面</a><br>
+  <br>
   <a href="/productor/login">商户登录</a><br>
   <a href="/productor/logout">商户登出</a><br>
+  <a href="/productor/m/edit?id=2">商户修改自己资料页面(只有登录才可以）</a><br>
+  <a href="/productor/m/dishes/add?id=2">登录后添加菜肴</a><br>
+  <a href="/productor/m/dishes/index?id=2">登录后查看所以已加菜肴</a><br>
+
+  <h1>站内目录访问图片</h1>
+  <img src="/resources/upload/pic/a.jpg">
+  <h1>设置虚拟目录访问图片</h1>
+  <img src="/pic/a.jpg">
 
   </body>
 </html>

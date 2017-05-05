@@ -3,10 +3,14 @@ package serviceImpl;
 import mapper.ProductorMapper;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
 import po.Productor;
 import service.ProductorService;
 
+import java.io.File;
+import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by p on 2017/5/3.
@@ -45,5 +49,16 @@ public class ProductorServiceImpl implements ProductorService{
     public Productor findById(Integer id) throws Exception {
         Productor productor = productorMapper.findById(id);
         return productor;
+    }
+
+    public Productor updateBaseInfo(Productor productor, MultipartFile photo_file) throws Exception {
+        //不为空就上传图片
+        if(!photo_file.isEmpty()){
+            String picUrl = PicUploadHeaper.upload(photo_file);
+            productor.setPhoto(picUrl);
+        }
+        productorMapper.updateBaseInfo(productor);
+        Productor newProductor = productorMapper.findById(productor.getId());
+        return newProductor; //返回跟新后的productor
     }
 }

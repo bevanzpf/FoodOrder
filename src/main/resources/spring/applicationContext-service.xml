@@ -7,4 +7,6 @@
 
     <bean id="productorService" class="serviceImpl.ProductorServiceImpl"></bean>
 
+    <bean id="dishservice" class="serviceImpl.DishServiceImpl"/>
+
 </beans>

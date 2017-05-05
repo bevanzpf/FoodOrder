@@ -24,4 +24,9 @@
         SELECT * FROM productors WHERE id = #{id}
     </select>
 
+    <update id="updateBaseInfo" parameterType="po.Productor" >
+        UPDATE  productors SET name = #{name}, email = #{email}, info=#{info}, photo=#{photo}
+         WHERE id=#{id}
+    </update>
+
 </mapper>

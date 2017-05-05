@@ -10,6 +10,8 @@
     </bean>
 
     <mvc:annotation-driven validator="validator"></mvc:annotation-driven>
+    <!-- 静态资源 配置-->
+    <mvc:resources mapping="/resources/**" location="/resources"/>
     <context:component-scan base-package="controller"/>
 
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
@@ -26,4 +28,21 @@
         <property name="fileEncodings" value="utf-8"/>
         <property name="cacheSeconds" value="120"/>
     </bean>
+
+    <!--图片上传解析器 -->
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize"><value>5242880</value></property>
+   </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor> <!-- productor的管理路径必须登录且操作自己的资源 -->
+            <mvc:mapping path="/productor/m/**"/>
+            <bean class="interceptor.ProductorManageIntc"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/productor/dishes/**"/>
+            <bean class="interceptor.ProductorDishIntc"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

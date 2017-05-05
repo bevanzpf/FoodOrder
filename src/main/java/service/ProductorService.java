@@ -1,5 +1,6 @@
 package service;
 
+import org.springframework.web.multipart.MultipartFile;
 import po.Productor;
 
 import java.util.List;
@@ -18,4 +19,8 @@ public interface ProductorService {
     Productor authenticate(String email, String pwd)throws Exception;
 
     Productor findById(Integer id) throws Exception;
+
+    Productor updateBaseInfo(Productor productor, MultipartFile photo_file)throws Exception;
+
+
 }

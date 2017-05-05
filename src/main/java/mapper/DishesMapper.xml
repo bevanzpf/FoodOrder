@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.DishesMapper">
+
+    <insert id="addOne" parameterType="po.Dish">
+        INSERT INTO dishes(productorId, name, price, ingredients, photoUrl, sales)
+        VALUES( #{productorId}, #{name},#{price}, #{ingredients},#{photoUrl},#{sales})
+    </insert>
+
+    <select id="findProductorDish" parameterType="int" resultType="po.Dish">
+        SELECT * FROM dishes WHERE productorId = #{id}
+    </select>
+
+    <update id="update" parameterType="po.Dish">
+        UPDATE dishes SET name = #{name}, price = #{price}, ingredients = #{ingredients},
+        photoUrl = #{photoUrl} WHERE id = #{id}
+    </update>
+
+    <select id="findById" parameterType="int" resultType="po.Dish">
+        SELECT * FROM dishes WHERE id = #{id}
+    </select>
+
+    <delete id="deleteOne" parameterType="int">
+        DELETE FROM dishes WHERE id = #{id}
+    </delete>
+
+</mapper>

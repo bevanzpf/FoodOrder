@@ -18,4 +18,6 @@ public interface ProductorMapper {
     Productor findByEmail(String email) throws Exception;
 
     Productor findById(Integer id) throws Exception;
+
+    void updateBaseInfo(Productor productor)throws Exception;
 }
