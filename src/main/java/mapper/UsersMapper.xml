@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UsersMapper">
+
+    <insert id="addOne" keyProperty="id" parameterType="po.Custom.UserCustom">
+        INSERT INTO users(name,email,pwd,phone,photoUrl, activeDigest)
+        VALUES (#{name}, #{email}, #{pwd}, #{phone}, #{photoUrl}, #{activeDigest})
+    </insert>
+
+    <select id="findByEmail" parameterType="String" resultType="po.Custom.UserCustom">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
+
+    <update id="setActivited" parameterType="int" >
+        UPDATE users SET activited = 1 WHERE id = #{id}
+    </update>
+
+</mapper>

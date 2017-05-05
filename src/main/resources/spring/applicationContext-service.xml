@@ -9,4 +9,6 @@
 
     <bean id="dishservice" class="serviceImpl.DishServiceImpl"/>
 
+    <bean id="userService" class="serviceImpl.UserServiceImpl"/>
+
 </beans>
