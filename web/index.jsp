@@ -30,6 +30,14 @@
   <a href="/productor/m/dishes/add?id=2">登录后添加菜肴</a><br>
   <a href="/productor/m/dishes/index?id=2">登录后查看所以已加菜肴</a><br>
 
+  <h1>普通用户</h1>
+  <a href="/singUp">注册</a>
+  <a href="/login">登录</a>
+  <a href="/logout">登出</a>
+  <a href="/u/pwd/edit">重置密码</a>
+  <a href="/pwd/forget">忘记密码</a>
+  <a href="#">跟新资料</a>
+
   <h1>站内目录访问图片</h1>
   <img src="/resources/upload/pic/a.jpg">
   <h1>设置虚拟目录访问图片</h1>

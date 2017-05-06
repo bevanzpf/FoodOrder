@@ -43,6 +43,11 @@
             <mvc:mapping path="/productor/dishes/**"/>
             <bean class="interceptor.ProductorDishIntc"/>
         </mvc:interceptor>
+        <!-- 确保用户登录 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/u/**"/>
+            <bean class="interceptor.UserAccessIntc"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>

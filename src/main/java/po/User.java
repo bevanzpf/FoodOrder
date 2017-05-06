@@ -13,6 +13,7 @@ public class User {
     private String photoUrl;
     private boolean activited;
     private String activeDigest;
+    private String resetDigest;
 
     @Override
     public String toString() {
@@ -26,6 +27,7 @@ public class User {
                 ", photoUrl='" + photoUrl + '\'' +
                 ", activited=" + activited +
                 ", activeDigest='" + activeDigest + '\'' +
+                ", resetDigest='" + resetDigest + '\'' +
                 '}';
     }
 
@@ -99,5 +101,13 @@ public class User {
 
     public void setActiveDigest(String activeDigest) {
         this.activeDigest = activeDigest;
+    }
+
+    public String getResetDigest() {
+        return resetDigest;
+    }
+
+    public void setResetDigest(String resetDigest) {
+        this.resetDigest = resetDigest;
     }
 }

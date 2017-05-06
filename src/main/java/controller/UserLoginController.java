@@ -27,10 +27,16 @@ public class UserLoginController {
         UserCustom user = userService.authenticateLogin(email, pwd);
         if(user != null){
             session.setAttribute("user", user);
-            return "redirect:/user?id="+user.getId();
+            return "redirect:/u/show";
         }else{
-            session.setAttribute("loginMessage","密码出错或账户未激活");
+            session.setAttribute("message","密码出错或账户未激活");
         }
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/logout")
+    public String delete(HttpSession session){
+        session.removeAttribute("user");
         return "redirect:/login";
     }
 

@@ -15,4 +15,16 @@
         UPDATE users SET activited = 1 WHERE id = #{id}
     </update>
 
+    <update id="updatePwd" parameterType="po.User">
+        UPDATE users SET pwd = #{pwd} WHERE id = #{id}
+    </update>
+
+    <update id="setResetDigest" parameterType="po.User">
+        UPDATE users SET resetDigest = #{resetDigest} WHERE id = #{id}
+    </update>
+
+    <update id="updatePwdAndResetDigest" parameterType="po.User">
+        UPDATE users SET resetDigest = #{resetDigest}, pwd = #{pwd} WHERE id = #{id}
+    </update>
+
 </mapper>

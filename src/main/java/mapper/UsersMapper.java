@@ -12,4 +12,10 @@ public interface UsersMapper {
     UserCustom findByEmail(String email)throws Exception;
 
     void setActivited(Integer id) throws Exception;
+
+    void updatePwd(User user)throws Exception;
+
+    void setResetDigest(User user) throws Exception;
+
+    void updatePwdAndResetDigest(User user) throws Exception;
 }

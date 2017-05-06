@@ -20,4 +20,8 @@
         <property name="host" value="localhost:8080"/>
     </bean>
 
+    <bean id="resetPwdMailer" class="mailer.ResetPwdMailer">
+        <property name="host" value="localhost:8080"></property>
+    </bean>
+
 </beans>

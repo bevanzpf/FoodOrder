@@ -13,4 +13,12 @@ public interface UserService {
 
     UserCustom authenticateLogin(String email, String pwd) throws Exception;
 
+    boolean changPwd(String email, String oldPwd, String newPwd)throws Exception;
+
+    boolean solvePwdForgetRequest(String email)throws Exception;
+
+    boolean solvePwdForgetLink(String email, String token)throws Exception;
+
+    boolean solveResetForm(String email, String token, String newPwd) throws Exception;
+
 }

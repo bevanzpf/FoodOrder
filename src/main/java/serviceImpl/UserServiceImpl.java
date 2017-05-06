@@ -1,6 +1,7 @@
 package serviceImpl;
 
 import mailer.ActiveAcountMailer;
+import mailer.ResetPwdMailer;
 import mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import po.Custom.UserCustom;
@@ -18,6 +19,8 @@ public class UserServiceImpl implements UserService {
     private UsersMapper usersMapper;
     @Autowired
     private ActiveAcountMailer activeAcountMailer;
+    @Autowired
+    private ResetPwdMailer resetPwdMailer;
 
     public int addOne(String email, String pwd) throws Exception {
         UserCustom userCustom = new UserCustom();
@@ -57,4 +60,55 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    public boolean changPwd(String email, String oldPwd, String newPwd) throws Exception {
+        UserCustom user = authenticateLogin(email, oldPwd);
+        if(user != null){
+            user.setPwd(MD5Util.getMD5hash(newPwd));
+            usersMapper.updatePwd(user);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean solvePwdForgetRequest(String email) throws Exception {
+        User user = usersMapper.findByEmail(email);
+        if(user == null){
+            return false;
+        }else{
+            String resetToken = RandomUtil.RandomString(22);
+            String resetDigest = MD5Util.getMD5hash(resetToken);
+            user.setResetDigest(resetDigest);
+            usersMapper.setResetDigest(user);
+            resetPwdMailer.send(email,resetToken);
+            return true;
+        }
+    }
+
+    public boolean solvePwdForgetLink(String email, String token) throws Exception {
+        User user = usersMapper.findByEmail(email);
+        String resetDigest = user.getResetDigest();
+        if(resetDigest == null || email == null){
+            return false;
+        }
+        String hashedToken = MD5Util.getMD5hash(token);
+        if(resetDigest.equals(hashedToken))
+            return true;
+        return false;
+    }
+
+    public boolean solveResetForm(String email, String token, String newPwd) throws Exception {
+        boolean isValidated = solvePwdForgetLink(email, token);
+        if(!isValidated){
+            return false;
+        }else{
+            User user = usersMapper.findByEmail(email);
+            user.setPwd(MD5Util.getMD5hash(newPwd));
+            user.setResetDigest(null);
+            usersMapper.updatePwdAndResetDigest(user);
+            return true;
+        }
+    }
+
 }
