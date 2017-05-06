@@ -27,4 +27,9 @@
         UPDATE users SET resetDigest = #{resetDigest}, pwd = #{pwd} WHERE id = #{id}
     </update>
 
+    <update id="updateBasedInfo" parameterType="po.User">
+        UPDATE users SET name=#{name},email=#{email},phone=#{phone},
+        address=#{address},photoUrl=#{photoUrl} WHERE id = #{id}
+    </update>
+
 </mapper>

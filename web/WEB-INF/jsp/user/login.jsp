@@ -15,7 +15,7 @@
 
 <c:if test="${not empty message}">
     <h3>${message}</h3>
-    <% session.removeAttribute("loginMessage"); %>
+    <% session.removeAttribute("message"); %>
     </c:if>
 
 <form method="post" action="/login.action">

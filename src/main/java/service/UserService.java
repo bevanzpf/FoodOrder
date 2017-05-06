@@ -1,6 +1,8 @@
 package service;
 
+import org.springframework.web.multipart.MultipartFile;
 import po.Custom.UserCustom;
+import po.User;
 
 /**
  * Created by p on 2017/5/5.
@@ -20,5 +22,7 @@ public interface UserService {
     boolean solvePwdForgetLink(String email, String token)throws Exception;
 
     boolean solveResetForm(String email, String token, String newPwd) throws Exception;
+
+    User updateBasedInfo(User user, MultipartFile photo_file)throws Exception;
 
 }

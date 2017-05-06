@@ -4,6 +4,7 @@ import mailer.ActiveAcountMailer;
 import mailer.ResetPwdMailer;
 import mapper.UsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
 import po.Custom.UserCustom;
 import po.User;
 import service.UserService;
@@ -109,6 +110,16 @@ public class UserServiceImpl implements UserService {
             usersMapper.updatePwdAndResetDigest(user);
             return true;
         }
+    }
+
+    public User updateBasedInfo(User user, MultipartFile photo_file) throws Exception {
+         if(!photo_file.isEmpty()){
+             String photoUrl = PicUploadHeaper.upload(photo_file);
+             user.setPhotoUrl(photoUrl);
+         }
+         usersMapper.updateBasedInfo(user);
+         User newUser = usersMapper.findByEmail(user.getEmail());
+         return newUser;
     }
 
 }

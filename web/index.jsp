@@ -34,9 +34,10 @@
   <a href="/singUp">注册</a>
   <a href="/login">登录</a>
   <a href="/logout">登出</a>
+  <a href="/u/show">用户主页</a>
   <a href="/u/pwd/edit">重置密码</a>
   <a href="/pwd/forget">忘记密码</a>
-  <a href="#">跟新资料</a>
+  <a href="/u/edit">跟新资料</a>
 
   <h1>站内目录访问图片</h1>
   <img src="/resources/upload/pic/a.jpg">

@@ -16,7 +16,8 @@ public class UserAccessIntc implements HandlerInterceptor {
         HttpSession session = httpServletRequest.getSession();
         User user = (User) session.getAttribute("user");
         if(user == null){
-            httpServletResponse.sendRedirect("/");
+            session.setAttribute("message","请先登录");
+            httpServletResponse.sendRedirect("/login");
         }
         return true;
     }

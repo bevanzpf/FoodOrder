@@ -18,4 +18,6 @@ public interface UsersMapper {
     void setResetDigest(User user) throws Exception;
 
     void updatePwdAndResetDigest(User user) throws Exception;
+
+    void updateBasedInfo(User user)throws Exception;
 }
