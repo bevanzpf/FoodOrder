@@ -14,7 +14,7 @@
 <a href="/u/show"><button>返回我的主页</button></a>
 <form method="post" action="/u/edit.action" enctype="multipart/form-data">
 
-    <img src="/${user.photoUrl}" width="200" height="200"/><br>
+    <img src="/pic${user.photoUrl}" width="200" height="200"/><br>
     <label for="photo_file" >改变头像</label><input id="photo_file" type="file" name="photo_file"><br>
 
     <label for="name" >昵称</label>

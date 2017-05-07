@@ -19,6 +19,8 @@ public class ProductorServiceImpl implements ProductorService{
 
     @Autowired
     private ProductorMapper productorMapper;
+    @Autowired
+    private PicUpLoadHelper picUploadHelper;
 
     public void addProductor(Productor productor) throws Exception{
         productorMapper.addOne(productor);
@@ -54,7 +56,7 @@ public class ProductorServiceImpl implements ProductorService{
     public Productor updateBaseInfo(Productor productor, MultipartFile photo_file) throws Exception {
         //不为空就上传图片
         if(!photo_file.isEmpty()){
-            String picUrl = PicUploadHeaper.upload(photo_file);
+            String picUrl = picUploadHelper.upload(photo_file);
             productor.setPhoto(picUrl);
         }
         productorMapper.updateBaseInfo(productor);

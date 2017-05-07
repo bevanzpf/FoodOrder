@@ -13,7 +13,7 @@
 <body>
 
 <form method="post" action="/productor/m/edit.action?id=${productor.id}" enctype="multipart/form-data" >
-    <img src="/${productor.photo}" height="300" width="400" /><br>
+    <img src="/pic${productor.photo}" height="300" width="400" /><br>
     <input type="file" name="photo_file"><br>
 
     <label for="name">店铺名称</label><br>

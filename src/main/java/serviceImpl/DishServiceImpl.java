@@ -15,10 +15,12 @@ public class DishServiceImpl implements DishService {
 
     @Autowired
     private DishesMapper dishesMapper;
+    @Autowired
+    private PicUpLoadHelper picUpLoadHelper;
 
     public void addOne(Dish dish, MultipartFile photo_file) throws Exception {
         if(!photo_file.isEmpty()){
-            String url = PicUploadHeaper.upload(photo_file);
+            String url = picUpLoadHelper.upload(photo_file);
             dish.setPhotoUrl(url);
         }
         dishesMapper.addOne(dish);
@@ -31,7 +33,7 @@ public class DishServiceImpl implements DishService {
 
     public void update(Integer id, Dish dish, MultipartFile photo_file) throws Exception {
         if(!photo_file.isEmpty()){
-            String newUrl = PicUploadHeaper.upload(photo_file);
+            String newUrl = picUpLoadHelper.upload(photo_file);
             dish.setPhotoUrl(newUrl);
         }
         dish.setId(id);

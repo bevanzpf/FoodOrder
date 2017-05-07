@@ -14,7 +14,7 @@
 <a href="/productor/m/dishes/index?id=${productor.id}">返回所以菜肴</a>
 <form method="post" action="/productor/dishes/edit.action?id=${dish.id}" enctype="multipart/form-data">
 
-    <img src="/${dish.photoUrl}" width="200" height="300"/>
+    <img src="/pic${dish.photoUrl}" width="200" height="300"/>
     <input type="file" name="photo_file" ><br>
     <label for="name">名字:</label>
     <input name="name" id="name" value="${dish.name}"><br>

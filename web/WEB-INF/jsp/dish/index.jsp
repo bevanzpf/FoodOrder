@@ -20,7 +20,7 @@
 <c:if test="${not empty dishes}">
 <c:forEach items="${dishes}" var="dish">
    <div class="dish">
-       <img src="/${dish.photoUrl}"/><br>
+       <img src="/pic${dish.photoUrl}"/><br>
        <div>
            <span>${dish.name}</span>
            <span>价格:${dish.price}</span>

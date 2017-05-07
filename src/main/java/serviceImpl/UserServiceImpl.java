@@ -22,6 +22,8 @@ public class UserServiceImpl implements UserService {
     private ActiveAcountMailer activeAcountMailer;
     @Autowired
     private ResetPwdMailer resetPwdMailer;
+    @Autowired
+    private PicUpLoadHelper picUpLoadHelper;
 
     public int addOne(String email, String pwd) throws Exception {
         UserCustom userCustom = new UserCustom();
@@ -114,7 +116,7 @@ public class UserServiceImpl implements UserService {
 
     public User updateBasedInfo(User user, MultipartFile photo_file) throws Exception {
          if(!photo_file.isEmpty()){
-             String photoUrl = PicUploadHeaper.upload(photo_file);
+             String photoUrl = picUpLoadHelper.upload(photo_file);
              user.setPhotoUrl(photoUrl);
          }
          usersMapper.updateBasedInfo(user);
