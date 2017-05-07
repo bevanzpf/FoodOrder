@@ -12,6 +12,8 @@ public class Productor {
     private String isOn;
     private String info;
     private String photo;
+    private String openTime;
+    private String enName;
 
     @Override
     public String toString() {
@@ -80,5 +82,21 @@ public class Productor {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(String openTime) {
+        this.openTime = openTime;
+    }
+
+    public String getEnName() {
+        return enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
     }
 }

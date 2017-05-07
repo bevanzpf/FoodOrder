@@ -25,7 +25,8 @@
     </select>
 
     <update id="updateBaseInfo" parameterType="po.Productor" >
-        UPDATE  productors SET name = #{name}, email = #{email}, info=#{info}, photo=#{photo}
+        UPDATE  productors SET name = #{name}, email = #{email},
+         enName=#{enName}, openTime = #{openTime}, info=#{info}, photo=#{photo}
          WHERE id=#{id}
     </update>
 

@@ -15,24 +15,23 @@ import javax.servlet.http.HttpSession;
  * Created by p on 2017/5/3.
  */
 @Controller
-@RequestMapping("/admin")
 public class AdminLoginController {
 
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping("/login")
+    @RequestMapping("/man/login")
     public String get(){
-        return "/shared/login";
+        return "/admin/login";
     }
 
-    @RequestMapping("login.action")
+    @RequestMapping("/man/login.action")
     public String create(Model model, String email,
                          HttpSession session, String pwd) throws Exception {
         Admin admin = adminService.authenticate(email, pwd);
         if(admin == null){
             session.setAttribute("loginMessage","用户密码或账户错误");
-            return "redirect:/admin/login";
+            return "redirect:/man/login";
         }else{
             session.setAttribute("admin", admin);
             session.setAttribute("user", admin);
@@ -40,13 +39,13 @@ public class AdminLoginController {
         return "redirect:/admin";
     }
 
-    @RequestMapping("logout")
+    @RequestMapping("/man/logout")
     public String delete(HttpSession session,
                          HttpServletResponse res){
 
         session.removeAttribute("user");
         session.removeAttribute("admin");
-        return "redirect:/admin/login";
+        return "redirect:/man/login";
 
     }
 

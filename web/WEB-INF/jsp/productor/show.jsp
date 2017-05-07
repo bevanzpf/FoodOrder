@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: p
@@ -9,19 +10,69 @@
 <html>
 <head>
     <title>${productor.name}</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/productorshow.css">
 </head>
 <body>
-<h1>商户:${productor.name} 的公共页面</h1>
 
-<div class="profile" width="100%" hight="300px">
-    <div>${productor.name}</div>
-    <img src="/${productor.photo}"/>
-    <div>${productor.info}</div>
-    <div>${productor.isOn}</div>
-</div>
+<div class="header">
+    <div class="container">
+        <span class="main"><a href="/">首页</a></span>
+        <span class="right"><a href="/login">登录</a></span>
+        <span class="right"><a href="/signUp">注册</a></span>
+        <span class="right"><a href="/u/show">我的主页</a></span>
+    </div>
+</div><!-- end header -->
 
-<div class="dishes">
-<%@include file="../shared/dishes.jsp"%>
-</div>
+<div class="container">
+    <div class="productor">
+        <div class="image"><img src="/pic${productor.photo}"></div><!-- end image -->
+        <div class="Logo">
+            <div class="logos">
+                <span class="cn_logo">${productor.name}</span>
+                <span class="En_logo">${productor.enName}</span>
+            </div><!-- end logos -->
+        </div><!-- end logo -->
+        <div class="right">
+            <div class="sellInfo"><span class="key">经营时间：</span><span class="value">${productor.openTime}</span></div><!--end sellInfo -->
+            <div class="quote">"${productor.info}"</div><!-- end quote -->
+        </div><!-- end right -->
+
+    </div><!-- end productor -->
+
+
+    <div class="menus">
+        <div class="dishes">
+
+            <div class="category">
+                <div class="bar"></div>
+                <div ><span>招牌美食</span></div>
+            </div><!--end category -->
+            <c:if test="${empty dishes}">
+                <p>小店初来乍到，还没有来得及添加菜肴敬请期待!</p>
+            </c:if>
+<c:if test="${not empty dishes}">
+    <c:forEach items="${dishes}" var="dish">
+            <div class="dish">
+
+                <div class="above">
+                    <div class="image"><img  src="/pic${dish.photoUrl}"/></div><!-- end image -->
+                    <div class="info">
+                        <div class="name">${dish.name}</div>
+                        <div class="otherInfo"><span class="key">主材：</span><span class="value"> ${dish.ingredients}</span></div>
+                        <div class="otherInfo"><span class="key">价格：</span><span class="value">${dish.price} 元</span></div>
+                        <div class="otherInfo"><span class="key">销量：</span><span class="value">${dish.sales}</span></div>
+                    </div><!-- end info -->
+                </div> <!-- end above -->
+                <div class="operation">
+                    <span><a href="#">下单</a></span>
+                    <span><a href="#">评论</a></span>
+                    <span><a href="#">收藏</a> </span>
+                </div><!-- end operation -->
+            </div><!-- end dish -->
+    </c:forEach>
+</c:if>
+        </div><!-- end dishes -->
+     </div><!-- end menus -->
+
 </body>
 </html>

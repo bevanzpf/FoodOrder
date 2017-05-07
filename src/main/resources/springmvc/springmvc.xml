@@ -48,6 +48,10 @@
             <mvc:mapping path="/u/**"/>
             <bean class="interceptor.UserAccessIntc"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <bean class="interceptor.AdminAccessIntc"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>

@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/login.css">
 </head>
 <body>
 
@@ -17,7 +18,7 @@
     <h3>${message}</h3>
     <% session.removeAttribute("message"); %>
     </c:if>
-
+<!--
 <form method="post" action="/login.action">
     <label for="email">邮箱</label>
     <input id="email" name="email"><br>
@@ -26,5 +27,20 @@
 
     <input type="submit" value="确定">
 </form>
+-->
+<div class="main">
+    <div class="left">
+        <img src="/resources/images/login.jpg" width="500px" height="500px">
+    </div>
+    <div class="right">
+        <form method="post" action="/login.action">
+            <p>登录</p>
+            <input type="text" name="email" placeholder="邮箱地址" style="width: 280px ;height:40px"><br>
+            <input type="password" name="pwd" placeholder="密码"  style="width: 280px; height:40px"><br>
+            <input type="submit" value="登录" style="width: 293px;height: 40px"><br>
+            <span><a href="/signUp">新用户注册</a> </span>
+        </form>
+    </div>
+</div>
 </body>
 </html>

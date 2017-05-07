@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>跟新商户资料</title>
+    <title>更新商户资料</title>
 </head>
 <body>
 
@@ -18,8 +18,12 @@
 
     <label for="name">店铺名称</label><br>
     <input name="name" id="name" value="${productor.name}"><br>
+    <label for="enName">英文名</label>
+    <input name="enName" id="enName" value="${productor.enName}">
     <label for="email">店铺登录Email</label><br>
     <input name="email" id="email" value="${productor.email}"><br>
+    <label for="openTime">经营时间</label>
+    <input name="openTime"id="openTime" placeholder="13:00~00:00" value="${productor.openTime}">
     <label for="info">商铺介绍</label><br>
     <input name="info" id="info" value="${productor.info}" type="text"><br>
 

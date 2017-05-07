@@ -13,8 +13,8 @@
   <body>
   <h1>管理员链接</h1>
 
-  <a href="/admin/login">管理员登录</a><br>
-  <a href="/admin/logout">管理员登出</a><br>
+  <a href="/man/login">管理员登录</a><br>
+  <a href="/man/logout">管理员登出</a><br>
   <a href="/admin/productors/add">管理员添加商铺</a><br>
   <a href="/admin/productors/index">管理员查看所以商品</a><br>
 
