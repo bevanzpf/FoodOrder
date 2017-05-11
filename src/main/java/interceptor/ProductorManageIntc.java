@@ -25,7 +25,8 @@ public class ProductorManageIntc implements HandlerInterceptor {
         }
         Productor productor = (Productor) session.getAttribute("productor");
         if(productor == null){
-            httpServletResponse.sendRedirect("/productor/login");
+            //httpServletResponse.sendRedirect("/productor/login");
+            httpServletRequest.getRequestDispatcher("/productor/login").forward(httpServletRequest,httpServletResponse);
         }else if(id!=0){
             if(productor.getId() != id)
             httpServletResponse.sendRedirect("/");

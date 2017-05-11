@@ -15,9 +15,11 @@ public class UserAccessIntc implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession session = httpServletRequest.getSession();
         User user = (User) session.getAttribute("user");
+        System.out.println("youyouyou"+user);
         if(user == null){
             session.setAttribute("message","请先登录");
-            httpServletResponse.sendRedirect("/login");
+            httpServletRequest.getRequestDispatcher("/login").forward(httpServletRequest,httpServletResponse);
+            //httpServletResponse.sendRedirect("/login");
         }
         return true;
     }

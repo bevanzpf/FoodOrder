@@ -17,7 +17,8 @@ public class AdminAccessIntc implements HandlerInterceptor {
         HttpSession session = httpServletRequest.getSession();
         Admin admin = (Admin) session.getAttribute("admin");
         if(admin == null){
-            httpServletResponse.sendRedirect("/admin/login");
+            //httpServletResponse.sendRedirect("/admin/login");
+            httpServletRequest.getRequestDispatcher("/man/login").forward(httpServletRequest,httpServletResponse);
         }
         return true;
     }

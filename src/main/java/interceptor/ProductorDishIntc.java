@@ -22,7 +22,8 @@ public class ProductorDishIntc implements HandlerInterceptor {
         int dishId = Integer.parseInt(httpServletRequest.getParameter("id"));
         Productor  productor = (Productor) session.getAttribute("productor");
         if(productor == null){
-            httpServletResponse.sendRedirect("/productor/login");
+            //httpServletResponse.sendRedirect("/productor/login");
+            httpServletRequest.getRequestDispatcher("/productor/login").forward(httpServletRequest,httpServletResponse);
         }else{
             if(dishId!=0){
                 Dish dish = dishService.findById(dishId);
