@@ -10,18 +10,14 @@
 <html>
 <head>
     <title>${productor.name}</title>
+    <script style="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+    <script style="text/javascript" src="/resources/js/add2car.js"></script>
     <link rel="stylesheet" type="text/css" href="/resources/css/productorshow.css">
 </head>
 <body>
 
-<div class="header">
-    <div class="container">
-        <span class="main"><a href="/">首页</a></span>
-        <span class="right"><a href="/login">登录</a></span>
-        <span class="right"><a href="/signUp">注册</a></span>
-        <span class="right"><a href="/u/show">我的主页</a></span>
-    </div>
-</div><!-- end header -->
+<%@include file="../shared/header.jsp"%>
+
 
 <div class="container">
     <div class="productor">
@@ -64,7 +60,7 @@
                     </div><!-- end info -->
                 </div> <!-- end above -->
                 <div class="operation">
-                    <span><a href="#">下单</a></span>
+                    <span class="add"><a id="link" href="/addDish2Car.action?id=${dish.id}" ></a>下单</span>
                     <span><a href="#">评论</a></span>
                     <span><a href="#">收藏</a> </span>
                 </div><!-- end operation -->
@@ -74,5 +70,11 @@
         </div><!-- end dishes -->
      </div><!-- end menus -->
 
+    <div class="car">
+        <div class="num"><span><a href="/order/edit">${itemTotal}</a></span></div>
+        <div class="image"><a href="/order/edit"><img src="/resources/images/car.jpg"></a></div>
+    </div><!--end car -->
+
+    </div>
 </body>
 </html>

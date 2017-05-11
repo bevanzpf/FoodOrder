@@ -19,9 +19,11 @@
     <label for="name">店铺名称</label><br>
     <input name="name" id="name" value="${productor.name}"><br>
     <label for="enName">英文名</label>
-    <input name="enName" id="enName" value="${productor.enName}">
+    <input name="enName" id="enName" value="${productor.enName}"><br>
     <label for="email">店铺登录Email</label><br>
     <input name="email" id="email" value="${productor.email}"><br>
+    <label for="phone">电话</label>
+    <input name="phone" id="phone" value="${productor.phone}"><br>
     <label for="openTime">经营时间</label>
     <input name="openTime"id="openTime" placeholder="13:00~00:00" value="${productor.openTime}">
     <label for="info">商铺介绍</label><br>

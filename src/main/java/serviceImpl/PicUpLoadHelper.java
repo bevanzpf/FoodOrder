@@ -29,7 +29,7 @@ public class PicUpLoadHelper {
         String month = String.valueOf(now.get(Calendar.MONTH));
         String day = String.valueOf(now.get(Calendar.DAY_OF_MONTH));
         //根据日期设置分级
-        String ymdPath = "\\"+year+"\\"+month+"\\"+day+"\\";
+        String ymdPath = File.separator+year+File.separator+month+File.separator+day+File.separator;
         String soreDir= path +ymdPath;
         File dir = new File(soreDir);
         if(!dir.exists())

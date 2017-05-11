@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.OrdersMapper">
+
+    <insert id="addOne" parameterType="po.Order">
+        INSERT INTO orders(dishId,userId,productorId,state,address)
+        VALUES (#{dishId}, #{userId}, #{productorId},
+        #{state}, #{address})
+    </insert>
+
+    <insert id="addBatch" parameterType="java.util.List" >
+        INSERT INTO orders(dishId, userId, productorId, state, address, acount)
+        VALUES
+        <foreach collection="list" item="order" index="index" separator=",">
+            (#{order.dishId},#{order.userId},#{order.productorId},#{order.state},#{order.address},#{order.acount})
+        </foreach>
+    </insert>
+
+    <select id="findAllUserOrder" parameterType="int" resultType="po.Order">
+        SELECT * from orders WHERE ( userId = #{id} and finished = FALSE ) ORDER BY createAt DESC ;
+    </select>
+
+    <update id="setCancel" parameterType="int">
+        UPDATE orders SET canceled = true, state="已取消" WHERE id = #{id}
+    </update>
+
+</mapper>

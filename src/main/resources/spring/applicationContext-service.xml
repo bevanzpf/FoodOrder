@@ -11,6 +11,8 @@
 
     <bean id="userService" class="serviceImpl.UserServiceImpl"/>
 
+    <bean id="orderService" class="serviceImpl.OrderServiceImpl"/>
+
 <!--    <bean id="picUpLoadHelper" class="serviceImpl.PicUpLoadHelper" init-method="init">
         <property name="physicalPath" value="D:\IntellijCode\FoodOder\web\resources\upload\pic"/>
     </bean>

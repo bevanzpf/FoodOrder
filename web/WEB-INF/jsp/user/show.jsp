@@ -11,11 +11,11 @@
     <title>${user.name}</title>
 </head>
 <body>
+<%@include file="../shared/header.jsp"%>
 <%@include file="../shared/message.jsp"%>
 <h1>用户${user.name}的主页</h1>
-<a href="/login">登录</a>
-<a href="/logout">登出</a>
 <a href="/u/pwd/edit">重置密码</a>
 <a href="/u/edit">跟新资料</a>
+<a href="/order/edit"><string>我的购物车</string></a>
 </body>
 </html>

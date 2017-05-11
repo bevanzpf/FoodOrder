@@ -14,6 +14,7 @@ public class Productor {
     private String photo;
     private String openTime;
     private String enName;
+    private String phone;
 
     @Override
     public String toString() {
@@ -26,6 +27,14 @@ public class Productor {
                 ", info='" + info + '\'' +
                 ", photo='" + photo + '\'' +
                 '}';
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getId() {

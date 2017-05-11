@@ -1,11 +1,14 @@
 package controller;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import po.Car;
 import po.Dish;
 import po.Productor;
 import service.DishService;
@@ -56,7 +59,15 @@ public class ProductorController {
     }
 
     @RequestMapping("/productor") //公共页面
-    public String show(Integer id, Model model) throws Exception {
+    public String show(Integer id, Model model,
+                       Car car,
+                       @CookieValue(value = "carCookie", required = false)String carCookieStr) throws Exception {
+        if(carCookieStr != null){
+            JSONObject jsonCar = JSONObject.fromObject(carCookieStr);
+            car = (Car) JSONObject.toBean(jsonCar, Car.class);
+            Integer itemTotal = car.getSum();
+            model.addAttribute("itemTotal", itemTotal);
+        }
         Productor productor = productorService.findById(id);
         List<Dish> dishes = dishService.findProductorsDishes(id);
         model.addAttribute("productor",productor);

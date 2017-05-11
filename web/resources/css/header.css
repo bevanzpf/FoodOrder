@@ -1,0 +1,32 @@
+body{
+    margin: 0 0;
+}
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+.header{
+    overflow: hidden;
+    height:30px;
+    width:100%;
+    margin-bottom: 8px;
+    background-color: black;
+}
+.header span:hover{ cursor: pointer;}
+.header span a{
+    text-decoration: none;
+    color: white;
+    font-size:1.1em;
+}
+.header span{
+    color: white;
+    padding-right: 10px;
+    line-height: 30px;
+
+}
+.header .container .right{
+    float: right;
+}
+.header .container .main{
+    float: left;
+}
