@@ -20,4 +20,6 @@ public interface UsersMapper {
     void updatePwdAndResetDigest(User user) throws Exception;
 
     void updateBasedInfo(User user)throws Exception;
+
+    User findById(Integer id)throws Exception;
 }

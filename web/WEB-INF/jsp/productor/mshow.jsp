@@ -17,5 +17,6 @@
 <a href="/productor/m/edit?id=${productor.id}">商户修改自己资料页面(只有登录才可以）</a><br>
 <a href="/productor/m/dishes/add?id=${productor.id}">登录后添加菜肴</a><br>
 <a href="/productor/m/dishes/index?id=${productor.id}">登录后查看所以已加菜肴</a><br>
+<a href="/productor/order/index">处理订单</a>
 </body>
 </html>

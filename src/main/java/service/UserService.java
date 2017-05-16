@@ -25,4 +25,6 @@ public interface UserService {
 
     User updateBasedInfo(User user, MultipartFile photo_file)throws Exception;
 
+    User findById(Integer id)throws Exception;
+
 }

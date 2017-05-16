@@ -24,4 +24,8 @@
         DELETE FROM dishes WHERE id = #{id}
     </delete>
 
+    <update id="updatesales" parameterType="int">
+        UPDATE dishes set sales = sales +1 WHERE id = #{id}
+    </update>
+
 </mapper>

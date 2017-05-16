@@ -24,4 +24,22 @@
         UPDATE orders SET canceled = true, state="已取消" WHERE id = #{id}
     </update>
 
+    <update id="setReject" parameterType="int">
+        UPDATE orders SET rejected = TRUE ,state="以被拒绝" WHERE id= #{id}
+    </update>
+
+    <update id="setFinished" parameterType="int">
+        UPDATE orders SET  finished = TRUE , state = "正在派送"  WHERE id = #{id}
+    </update>
+
+    <select id="findAllProductorOrder" parameterType="int" resultType="po.Order">
+        SELECT * FROM orders WHERE ( productorId = #{id} and finished = FALSE ) Order BY createAt DESC ;
+    </select>
+
+    <select id="findById" parameterType="int" resultType="po.Order">
+        SELECT * FROM  orders WHERE id = #{id}
+    </select>
+
+
+
 </mapper>

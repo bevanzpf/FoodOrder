@@ -32,4 +32,8 @@
         address=#{address},photoUrl=#{photoUrl} WHERE id = #{id}
     </update>
 
+    <select id="findById" parameterType="int" resultType="po.User">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
 </mapper>

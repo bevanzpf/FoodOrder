@@ -17,5 +17,6 @@
 <a href="/u/pwd/edit">重置密码</a>
 <a href="/u/edit">跟新资料</a>
 <a href="/order/edit"><string>我的购物车</string></a>
+<a href="/u/order/show">查看我的订单</a>
 </body>
 </html>

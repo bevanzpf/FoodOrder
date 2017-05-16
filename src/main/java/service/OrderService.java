@@ -19,4 +19,12 @@ public interface OrderService {
     List<OrderCustom> findAllUserOrder(Integer userId)throws Exception;
 
     void cancelOne(Integer orderId)throws Exception;
+
+    void finishedOne(Integer orderId) throws Exception;
+
+    void rejectOne(Integer orderId)throws Exception;
+
+    List<OrderCustom> findAllProductOrder(Integer ProductorId)throws Exception;
+
+    Order findById(Integer id)throws Exception;
 }

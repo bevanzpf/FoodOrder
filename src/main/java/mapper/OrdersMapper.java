@@ -16,4 +16,12 @@ public interface OrdersMapper {
     List<Order> findAllUserOrder(Integer userId)throws Exception;
 
     void setCancel(Integer orderid)throws Exception;
+
+    void setReject(Integer orderId) throws Exception;
+
+    void setFinished(Integer orderId) throws Exception;
+
+    List<Order> findAllProductorOrder(Integer id)throws Exception;
+
+    Order findById(Integer id)throws Exception;
 }

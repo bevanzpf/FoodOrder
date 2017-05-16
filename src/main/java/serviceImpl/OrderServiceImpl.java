@@ -4,12 +4,10 @@ import mapper.DishesMapper;
 import mapper.OrdersMapper;
 import mapper.ProductorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import po.Car;
+import po.*;
 import po.Custom.OrderCustom;
-import po.Dish;
-import po.Order;
-import po.Productor;
 import service.OrderService;
+import service.UserService;
 import vo.OrderVo;
 
 import java.util.ArrayList;
@@ -27,6 +25,9 @@ public class OrderServiceImpl implements OrderService{
     private DishesMapper dishesMapper;
     @Autowired
     private ProductorMapper productorMapper;
+
+    @Autowired
+    private UserService userService;
     public void addBatch(List<Order> orders) throws Exception {
 
         ordersMapper.addBatch(orders);
@@ -81,4 +82,40 @@ public class OrderServiceImpl implements OrderService{
     public void cancelOne(Integer orderId) throws Exception {
         ordersMapper.setCancel(orderId);
     }
+
+    public void finishedOne(Integer orderId) throws Exception {
+        ordersMapper.setFinished(orderId);
+        Order order = ordersMapper.findById(orderId);
+        System.out.println(order);
+        Dish dish = dishesMapper.findById(order.getDishId());
+        dishesMapper.updatesales(dish.getId());
+    }
+
+    public void rejectOne(Integer orderId) throws Exception {
+        ordersMapper.setReject(orderId);
+    }
+
+    public List<OrderCustom> findAllProductOrder(Integer productorId) throws Exception {
+        List<Order> orders = ordersMapper.findAllProductorOrder(productorId);
+        List<OrderCustom> orderCustoms = new ArrayList<OrderCustom>();
+        for(Order order: orders){
+            OrderCustom orderCustom = new OrderCustom();
+            orderCustom.setId(order.getId());
+            orderCustom.setAddress(order.getAddress());
+            orderCustom.setState(order.getState());
+            User user = userService.findById(order.getUserId());
+            orderCustom.setUser(user);
+            Dish dish = dishesMapper.findById(order.getDishId());
+            orderCustom.setDish(dish);
+            orderCustoms.add(orderCustom);
+        }
+        return orderCustoms;
+    }
+
+    public Order findById(Integer id) throws Exception {
+        Order order = ordersMapper.findById(id);
+        return order;
+    }
+
+
 }

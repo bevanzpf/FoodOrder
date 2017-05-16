@@ -124,4 +124,9 @@ public class UserServiceImpl implements UserService {
          return newUser;
     }
 
+    public User findById(Integer id) throws Exception {
+        User user = usersMapper.findById(id);
+        return user;
+    }
+
 }

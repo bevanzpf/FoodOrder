@@ -20,4 +20,6 @@ public interface DishesMapper {
 
     void deleteOne(Integer id)throws Exception;
 
+    void updatesales(Integer id) throws Exception;
+
 }

@@ -31,7 +31,7 @@
   <a href="/productor/m/dishes/index?id=2">登录后查看所以已加菜肴</a><br>
 
   <h1>普通用户</h1>
-  <a href="/singUp">注册</a>
+  <a href="/signUp">注册</a>
   <a href="/login">登录</a>
   <a href="/logout">登出</a>
   <a href="/u/show">用户主页</a>

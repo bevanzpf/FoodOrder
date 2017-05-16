@@ -52,6 +52,10 @@
             <mvc:mapping path="/admin/**"/>
             <bean class="interceptor.AdminAccessIntc"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/productor/order/**"/>
+            <bean class="interceptor.ProductorOrderIntc"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>
