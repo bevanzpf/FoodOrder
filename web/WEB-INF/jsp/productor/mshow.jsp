@@ -9,9 +9,10 @@
 <html>
 <head>
     <title>商户管理页面</title>
+
 </head>
 <body>
-
+<%@include file="../shared/header.jsp"%>
 <h1>${productor.name}的管理页面</h1>
 <a href="/productor/logout">商户登出</a><br>
 <a href="/productor/m/edit?id=${productor.id}">商户修改自己资料页面(只有登录才可以）</a><br>

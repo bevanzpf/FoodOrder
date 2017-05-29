@@ -9,8 +9,27 @@
 <html>
 <head>
     <title>添加菜肴</title>
+    <style type="text/css">
+        form{
+            width: 400px;
+            margin:20 400;
+            line-height: 40px;
+            border:1px solid #EDE4E4;
+            padding-left: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px
+        }
+        input{
+            width: 250px;
+            height: 30px;
+            border-radius: 3px;
+        }
+        label{width: 40px;display: inline-block;}
+        #btn{width:60px;}
+    </style>
 </head>
 <body>
+<%@include file="../shared/header.jsp"%>
 <h1>${productor.name},欢迎您添加菜肴</h1><br>
 <a href="/productor/m?id=${productor.id}">返回管理主页</a>   ||   <a href="/productor/m/dishes/index?id=${productor.id}">查看已经有菜肴</a><br>
 <form method="post" action="/productor/m/dishes/add.action?id=${productor.id}" enctype="multipart/form-data">
@@ -23,7 +42,7 @@
     <label for="ingredients">主材:</label>
     <input name="ingredients" id="ingredients"><br>
 
-    <input type="submit" value="确定">
+    <input type="submit" value="确定" id="btn">
 
 </form>
 

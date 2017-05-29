@@ -25,7 +25,12 @@ public class UserController {
     }
 
     @RequestMapping("/singUp.action")
-    public String create(String email, String pwd) throws Exception {
+    public String create(String email, String pwd, HttpSession session) throws Exception {
+        if(userService.isExist(email)){
+            session.setAttribute("message", "email已经存在请登录,或查看邮箱激活");
+            return "redirect:/signUp";
+        }
+
         userService.addOne(email,pwd);
         return "/user/signUpSuccess";
     }

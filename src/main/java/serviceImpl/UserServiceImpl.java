@@ -129,4 +129,11 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    public boolean isExist(String email) throws Exception {
+        User user = usersMapper.findByEmail(email);
+        if(user != null)
+            return true;
+        return false;
+    }
+
 }

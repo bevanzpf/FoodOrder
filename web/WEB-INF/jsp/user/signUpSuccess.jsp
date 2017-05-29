@@ -11,6 +11,7 @@
     <title>注册成功</title>
 </head>
 <body>
-<p>您已注册成功请查收邮件并激活账户</p>
+<%@include file="../shared/header.jsp"%>
+<p>您已注册成功请查收邮件(留意垃圾邮箱）并激活账户</p>
 </body>
 </html>

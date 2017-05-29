@@ -22,4 +22,5 @@ public interface UsersMapper {
     void updateBasedInfo(User user)throws Exception;
 
     User findById(Integer id)throws Exception;
+
 }

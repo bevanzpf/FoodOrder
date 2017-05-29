@@ -27,4 +27,6 @@ public interface UserService {
 
     User findById(Integer id)throws Exception;
 
+    boolean isExist(String email)throws  Exception;
+
 }

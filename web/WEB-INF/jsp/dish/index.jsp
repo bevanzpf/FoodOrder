@@ -10,10 +10,22 @@
 <html>
 <head>
     <title>所以菜肴</title>
+    <style type="text/css">
+        #main{width: 700px;margin:0 auto;}
+        .dish{
+            width: 350px;
+            height: 350px;
+            float: left;
+
+        }
+    </style>
 </head>
 <body>
+<%@include file="../shared/header.jsp"%>
+
 <a href="/productor/m?id=${productor.id}">返回管理主页</a>   ||
 <a href="/productor/m/dishes/add?id=${productor.id}">继续添加</a><br>
+<div id="main">
 <c:if test="${empty dishes}">
     <p>您还没有添加任何菜肴</p><a href="/productor/m/dishes/add?id=${productor.id}">现在添加？</a>
 </c:if>
@@ -33,5 +45,6 @@
    </div>
 </c:forEach>
 </c:if>
+</div>
 </body>
 </html>

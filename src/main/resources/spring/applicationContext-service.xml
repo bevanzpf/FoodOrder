@@ -21,4 +21,6 @@
         <property name="physicalPath" value="D:\IntellijCode\FoodOder\web\resources\upload\pic"/>
     </bean>
 
+    <bean id="service" class="serviceImpl.ServerImpl"/>
+
 </beans>

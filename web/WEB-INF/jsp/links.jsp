@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: p
-  Date: 2017/5/2
-  Time: 20:53
+  Date: 2017/5/29
+  Time: 16:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
+<head>
+    <title>Title</title>
+</head>
+<body>
   <h1>管理员链接</h1>
 
   <a href="/man/login">管理员登录</a><br>
@@ -43,6 +43,5 @@
   <img src="/resources/upload/pic/a.jpg">
   <h1>设置虚拟目录访问图片</h1>
   <img src="/pic/a.jpg">
-
-  </body>
+</body>
 </html>

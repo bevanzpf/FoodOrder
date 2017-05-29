@@ -15,8 +15,10 @@
     <div class="container">
         <span class="main"><a href="/">首页</a></span>
         <c:if test="${empty sessionScope.user}">
+            <c:if test="${empty sessionScope.productor}">
             <span class="right"><a href="/signUp">注册</a></span>
             <span class="right"><a href="/login">登录</a></span>
+            </c:if>
         </c:if>
         <c:if test="${not empty sessionScope.user}">
             <span class="right"><a href="/logout">注销</a></span>
