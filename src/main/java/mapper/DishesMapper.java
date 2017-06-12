@@ -1,5 +1,7 @@
 package mapper;
 
+import org.apache.ibatis.session.RowBounds;
+import po.Custom.DishForPaginate;
 import po.Dish;
 
 import java.net.InetAddress;
@@ -13,6 +15,8 @@ public interface DishesMapper {
     void addOne(Dish dish)throws Exception;
 
     List<Dish> findProductorDish(Integer id)throws Exception;
+
+    List<Dish> findProductorDishByPage(DishForPaginate dishForPaginate)throws Exception;
 
     void update(Dish dish)throws Exception;
 

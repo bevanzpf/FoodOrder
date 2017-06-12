@@ -1,5 +1,6 @@
 package service;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.web.multipart.MultipartFile;
 import po.Dish;
 
@@ -13,6 +14,8 @@ public interface DishService {
      void addOne(Dish dish, MultipartFile photo_file)throws Exception;
 
      List<Dish> findProductorsDishes(Integer id)throws Exception;
+
+     List<Dish> findProductorsDishesByPage(Integer productorId, Integer maxId)throws Exception;
 
      void update(Integer id , Dish dish, MultipartFile photo_file)throws Exception;
 

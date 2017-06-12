@@ -1,6 +1,7 @@
 package serviceImpl;
 
 import mapper.ProductorMapper;
+import org.apache.ibatis.session.RowBounds;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +29,12 @@ public class ProductorServiceImpl implements ProductorService{
 
     public List<Productor> showAll() throws Exception {
         List<Productor> productors = productorMapper.selectAll();
+        return productors;
+    }
+
+    public List<Productor> showAllPagely() throws Exception{
+        List<Productor> productors = productorMapper.selectAll();
+        System.out.println(productors);
         return productors;
     }
 

@@ -17,8 +17,11 @@
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
 
+
+
     <typeAliases>
         <package name="po"/>
     </typeAliases>
+
 
 </configuration>

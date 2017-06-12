@@ -136,4 +136,24 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    public String rememberUser(User user) throws Exception {
+        String token = RandomUtil.RandomString(22);
+        String rememberDigest = MD5Util.getMD5hash(token);
+        user.setRememberDigest(rememberDigest);
+        usersMapper.updateRememberDigest(user);
+        return token;
+    }
+
+    public User authenticateRememberToken(Integer id, String token) throws Exception {
+        User user= usersMapper.findById(id);
+        if(user!=null){
+            String digest = user.getRememberDigest();
+            String digestformbrowser = MD5Util.getMD5hash(token);
+            if(digest != null && digest.equals(digestformbrowser)){
+                return user;
+            }
+        }
+        return null;
+    }
+
 }

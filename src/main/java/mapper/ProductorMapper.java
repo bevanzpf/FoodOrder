@@ -1,5 +1,6 @@
 package mapper;
 
+import org.apache.ibatis.session.RowBounds;
 import po.Productor;
 
 import java.util.List;
@@ -12,6 +13,8 @@ public interface ProductorMapper {
     void addOne(Productor productor)throws Exception;
 
     List<Productor> selectAll() throws Exception;
+
+    List<Productor> selectAll(RowBounds rowBounds) throws Exception;
 
     void deleteOne(Integer id)throws Exception;
 

@@ -39,6 +39,12 @@
             margin-left: 50px;
             background-color: #fafcfe
         }
+        .right form label{
+            padding-left: 30px;
+        }
+        .right form #chb{
+            width: 30px;
+        }
     </style>
 </head>
 <body>
@@ -67,6 +73,8 @@
             <input type="text" name="email" placeholder="邮箱地址" style="width: 280px ;height:40px"><br>
             <input type="password" id="btn" name="pwd" placeholder="密码"  style="width: 280px; height:40px"><br>
             <input type="submit" value="登录" style="width: 293px;height: 40px"><br>
+            <label for="chb">记住我</label>
+            <input type="checkbox" id="chb" value="1" name="checked" style="width: 30px; height:20px; display: inline;">
             <span><a href="/signUp">新用户注册</a> </span>
         </form>
     </div>

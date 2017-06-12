@@ -13,12 +13,62 @@
     <script style="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
     <script style="text/javascript" src="/resources/js/add2car.js"></script>
     <link rel="stylesheet" type="text/css" href="/resources/css/productorshow.css">
+    <style type="text/css">
+        #load{
+            clear: both;
+        }
+        #load li{
+            margin: 0 auto;
+        }
+        #load li a{
+            text-decoration: none;
+        }
+    </style>
+    <!--
+     -->
+    <script type="text/javascript">
+        var stop=false;//触发开关，防止多次调用事件
+        <c:if test="${not empty dishes}">
+        var url = "/productor/getpage?productorId=${productor.id}&maxId=${dishes.get(dishes.size()-1).id}";
+        </c:if>
+        $(window).scroll( function(event){
+//当内容滚动到底部时加载新的内容 100当距离最底部100个像素时开始加载.
+
+            if ($(this).scrollTop() + $(window).height() + 1 >= $(document).height() && $(this).scrollTop() > 10 && stop == false) {
+//if(stop==true){
+//stop=false;
+//var canshu="page/"+page+";
+                stop = true;
+$("#load").append("<li class='ajaxtips'><div style='font-size:2em'>Loding…..</div>");
+                setTimeout(function(){
+                    $.get(url, function (data) {
+                        if(data=="0"){
+                            $("#load").find("li").html('已全部加载完');
+                            return;
+                        }
+                        $("#load").remove();
+                        $("#dishes").append(data);
+                        var maxId = $("#dishes").children(":last-child").find("#maxId").html();
+                        $("#dishes").append("<div></div>");
+                        $("#dishes").children(":last-child").attr("id","load");
+                        $("#dishes").children(":last-child").attr("style","clear:both");
+                        var productorId = $("#productorId").html();
+                        url = "/productor/getpage?productorId="+productorId+"&maxId="+maxId;
+                        stop = false;
+
+                    });
+                }, 2000);
+
+}
+});
+</script>
 </head>
 <body>
 
 <%@include file="../shared/header.jsp"%>
 
 
+<span id="productorId" style="display: none">${productor.id}</span>
 <div class="container">
     <div class="productor">
         <div class="image"><img src="/pic${productor.photo}"></div><!-- end image -->
@@ -37,7 +87,7 @@
 
 
     <div class="menus">
-        <div class="dishes">
+        <div class="dishes" id="dishes">
 
             <div class="category">
                 <div class="bar"></div>
@@ -48,8 +98,7 @@
             </c:if>
 <c:if test="${not empty dishes}">
     <c:forEach items="${dishes}" var="dish">
-            <div class="dish">
-
+            <div class="dish" >
                 <div class="above">
                     <div class="image"><img  src="/pic${dish.photoUrl}"/></div><!-- end image -->
                     <div class="info">
@@ -60,12 +109,13 @@
                     </div><!-- end info -->
                 </div> <!-- end above -->
                 <div class="operation">
-                    <span class="add"><a id="link" href="/addDish2Car.action?id=${dish.id}" ></a>下单</span>
+                    <span class="add"><a id="link" href="/addDish2Car.action?id=${dish.id}"></a>下单</span>
                     <span><a href="#">评论</a></span>
                     <span><a href="#">收藏</a> </span>
                 </div><!-- end operation -->
             </div><!-- end dish -->
     </c:forEach>
+    <div id="load" style="clear: both;"></div>
 </c:if>
         </div><!-- end dishes -->
      </div><!-- end menus -->

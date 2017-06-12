@@ -23,4 +23,6 @@ public interface UsersMapper {
 
     User findById(Integer id)throws Exception;
 
+    void updateRememberDigest(User user) throws Exception;
+
 }

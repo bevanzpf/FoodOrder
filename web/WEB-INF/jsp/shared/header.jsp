@@ -13,7 +13,7 @@
 </head>
 <div class="header">
     <div class="container">
-        <span class="main"><a href="/">首页</a></span>
+        <span class="main"><a href="/">仲恺外卖</a></span>
         <c:if test="${empty sessionScope.user}">
             <c:if test="${empty sessionScope.productor}">
             <span class="right"><a href="/signUp">注册</a></span>

@@ -14,6 +14,15 @@ public class User {
     private boolean activited;
     private String activeDigest;
     private String resetDigest;
+    private String rememberDigest;
+
+    public String getRememberDigest() {
+        return rememberDigest;
+    }
+
+    public void setRememberDigest(String rememberDigest) {
+        this.rememberDigest = rememberDigest;
+    }
 
     @Override
     public String toString() {

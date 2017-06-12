@@ -1,8 +1,11 @@
 package po;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 /**
  * Created by p on 2017/5/5.
  */
+@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
 public class Dish {
     private int id;
     private int productorId;

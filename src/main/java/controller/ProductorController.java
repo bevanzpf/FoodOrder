@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import po.Car;
 import po.Dish;
@@ -47,7 +48,7 @@ public class ProductorController {
 
     @RequestMapping("/admin/productors/index")
     public String show(Model model) throws Exception {
-        List<Productor> productors = productorService.showAll();
+        List<Productor> productors = productorService.showAllPagely();
         model.addAttribute("productors", productors);
         return "/productor/index";
     }
@@ -73,6 +74,23 @@ public class ProductorController {
         model.addAttribute("productor",productor);
         model.addAttribute("dishes", dishes);
         return "/productor/show";
+    }
+
+    @RequestMapping("/productor/getpage")
+    public String getDishPage(Integer productorId,
+                                                Integer maxId, Model model) throws Exception {
+        List<Dish> dishes = dishService.findProductorsDishesByPage(productorId, maxId);
+        if(dishes.isEmpty()){
+            return "redirect:/productor/getpageJson";
+        }
+        model.addAttribute("dishes", dishes);
+
+        return "/productor/dishPage";
+    }
+
+    @RequestMapping("/productor/getpageJson")
+    public @ResponseBody String returnEmptyJson(){
+        return "0";
     }
 
     @RequestMapping("/productor/m")//管理界面

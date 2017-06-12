@@ -14,6 +14,8 @@ public interface ProductorService {
 
     List<Productor> showAll()throws Exception;
 
+    List<Productor> showAllPagely() throws Exception;
+
     void deleteOne(Integer id)throws Exception;
 
     Productor authenticate(String email, String pwd)throws Exception;

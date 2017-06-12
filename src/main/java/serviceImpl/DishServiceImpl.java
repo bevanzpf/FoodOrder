@@ -1,8 +1,10 @@
 package serviceImpl;
 
 import mapper.DishesMapper;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
+import po.Custom.DishForPaginate;
 import po.Dish;
 import service.DishService;
 
@@ -28,6 +30,14 @@ public class DishServiceImpl implements DishService {
 
     public List<Dish> findProductorsDishes(Integer id) throws Exception {
         List<Dish> dishes = dishesMapper.findProductorDish(id);
+        return dishes;
+    }
+
+    public List<Dish> findProductorsDishesByPage(Integer productorId, Integer maxId) throws Exception {
+        DishForPaginate dishForPaginate = new DishForPaginate();
+        dishForPaginate.setProductorId(productorId);
+        dishForPaginate.setMaxId(maxId);
+        List<Dish> dishes = dishesMapper.findProductorDishByPage(dishForPaginate);
         return dishes;
     }
 

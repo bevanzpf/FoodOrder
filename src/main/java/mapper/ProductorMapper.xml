@@ -12,6 +12,8 @@
         SELECT * FROM productors
     </select>
 
+
+
     <delete id="deleteOne" parameterType="int">
         DELETE FROM productors WHERE id=#{id}
     </delete>

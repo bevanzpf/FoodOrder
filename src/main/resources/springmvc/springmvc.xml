@@ -35,6 +35,10 @@
    </bean>
 
     <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/"/>
+            <bean class="interceptor.AutoLoginIntc"/>
+        </mvc:interceptor>
         <mvc:interceptor> <!-- productor的管理路径必须登录且操作自己的资源 -->
             <mvc:mapping path="/productor/m/**"/>
             <bean class="interceptor.ProductorManageIntc"/>

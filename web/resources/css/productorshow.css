@@ -201,3 +201,13 @@ body{
     border-radius: 50%;
 }
 
+#load{
+    clear: both;
+}
+#load li{
+    margin: 0 auto;
+}
+#load li a{
+    text-decoration: none;
+}
+

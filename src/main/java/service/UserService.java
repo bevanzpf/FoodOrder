@@ -29,4 +29,8 @@ public interface UserService {
 
     boolean isExist(String email)throws  Exception;
 
+    String rememberUser(User user)throws Exception;
+
+    User authenticateRememberToken(Integer id, String token)throws Exception;
+
 }
