@@ -17,6 +17,8 @@ public interface DishService {
 
      List<Dish> findProductorsDishesByPage(Integer productorId, Integer maxId)throws Exception;
 
+     List<Dish> searchDish(Integer ProductorId, String searchKey)throws Exception;
+
      void update(Integer id , Dish dish, MultipartFile photo_file)throws Exception;
 
      Dish findById(Integer id)throws Exception;

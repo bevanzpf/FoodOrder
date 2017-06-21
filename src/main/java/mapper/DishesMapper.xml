@@ -15,6 +15,10 @@
         SELECT * FROM dishes WHERE productorId = #{productorId} AND id > #{maxId} LIMIT 10
     </select>
 
+    <select id="searchDish" parameterType="po.Custom.DishCustom" resultType="po.Dish">
+        SELECT * FROM dishes WHERE productorId = #{productorId} AND name LIKE '%${searchKey}%'
+    </select>
+
     <update id="update" parameterType="po.Dish">
         UPDATE dishes SET name = #{name}, price = #{price}, ingredients = #{ingredients},
         photoUrl = #{photoUrl} WHERE id = #{id}

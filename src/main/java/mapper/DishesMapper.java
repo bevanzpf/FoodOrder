@@ -1,6 +1,7 @@
 package mapper;
 
 import org.apache.ibatis.session.RowBounds;
+import po.Custom.DishCustom;
 import po.Custom.DishForPaginate;
 import po.Dish;
 
@@ -25,5 +26,7 @@ public interface DishesMapper {
     void deleteOne(Integer id)throws Exception;
 
     void updatesales(Integer id) throws Exception;
+
+    List<Dish> searchDish(DishCustom dishCustom)throws Exception;
 
 }

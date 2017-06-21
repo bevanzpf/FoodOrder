@@ -4,6 +4,7 @@ import mapper.DishesMapper;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
+import po.Custom.DishCustom;
 import po.Custom.DishForPaginate;
 import po.Dish;
 import service.DishService;
@@ -38,6 +39,14 @@ public class DishServiceImpl implements DishService {
         dishForPaginate.setProductorId(productorId);
         dishForPaginate.setMaxId(maxId);
         List<Dish> dishes = dishesMapper.findProductorDishByPage(dishForPaginate);
+        return dishes;
+    }
+
+    public List<Dish> searchDish(Integer productorId, String searchKey) throws Exception {
+        DishCustom dishCustom = new DishCustom();
+        dishCustom.setProductorId(productorId);
+        dishCustom.setSearchKey(searchKey);
+        List<Dish> dishes = dishesMapper.searchDish(dishCustom);
         return dishes;
     }
 

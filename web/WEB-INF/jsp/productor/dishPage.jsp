@@ -8,6 +8,28 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<script type="text/javascript">
+    var getByAjax = function(urll){
+        $.get({
+            url: urll,
+            success: function(data){
+                var num = $(".num").children("span").text();
+                var num1 = Number(num)+1;
+                $(".num").fadeOut(300);
+                $(".num").children("span").text(num1);
+                $(".num").fadeIn(300);
+            }
+        });
+    }
+
+
+    $(document).ready(function(){
+        $('#dish').find('.add').click(function () {
+            var url = $(this).find("#link").attr("href");
+            getByAjax(url);
+        });
+    });
+</script>
 <body>
 <c:forEach items="${dishes}" var="dish">
     <div class="dish">
@@ -29,5 +51,6 @@
         </div><!-- end operation -->
     </div><!-- end dish -->
 </c:forEach>
+
 </body>
 </html>

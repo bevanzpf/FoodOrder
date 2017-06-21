@@ -18,6 +18,7 @@ import service.ProductorService;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -91,6 +92,15 @@ public class ProductorController {
     @RequestMapping("/productor/getpageJson")
     public @ResponseBody String returnEmptyJson(){
         return "0";
+    }
+
+    @RequestMapping("/productor/dish/search")
+    public String searchDish(Integer productorId, String searchKey,Model model) throws Exception {
+        String decodeKey = URLDecoder.decode(searchKey,"UTF-8");
+        System.out.println(decodeKey);
+        List<Dish> dishes = dishService.searchDish(productorId, decodeKey);
+        model.addAttribute("dishes", dishes);
+        return "/productor/dishPage";
     }
 
     @RequestMapping("/productor/m")//管理界面
